@@ -1,0 +1,24 @@
+# Day 12 - Hong Kong Salary Calculator
+
+name = "Tariq"
+gross_salary = 45000  # Your starting slot in HK
+
+print(f"\n=== HK SALARY SLIP for {name} ===")
+print(f"Gross Salary: {gross_salary} HKD")
+
+# MPF - 5%
+mpf = gross_salary * 0.05
+print(f"MPF Deduction (5%): {mpf} HKD")
+
+# Tax - 15%
+tax = gross_salary * 0.15
+print(f"Tax (15%): {tax} HKD")
+
+# Net Salary - What you take home
+net_salary = gross_salary - mpf - tax
+print(f"Net Salary: {net_salary} HKD")
+
+if net_salary >= 35000:
+    print("Good! You can live well in Hong Kong ✅")
+else:
+    print("Tight budget, need to save")
