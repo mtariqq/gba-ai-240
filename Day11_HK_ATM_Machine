@@ -1,0 +1,20 @@
+# Day 11 - HK ATM Machine
+
+balance = 5000
+print("Your Balance:", balance, "HKD")
+
+# 1. Deposit - Salary came!
+deposit = 20000
+balance = balance + deposit
+print("After Deposit:", balance, "HKD")
+
+# 2. Withdraw - Rent + Food
+withdraw = 8000
+balance = balance - withdraw
+print("After Withdraw:", balance, "HKD")
+
+# 3. Check - Can you buy iPhone?
+if balance >= 15000:
+    print("You can buy iPhone ✅")
+else:
+    print("Not enough for iPhone ❌")
