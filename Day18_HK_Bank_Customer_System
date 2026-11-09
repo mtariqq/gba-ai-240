@@ -1,0 +1,19 @@
+# Day 18 - HK Bank Customer System
+
+customers = [
+    {"name": "Tariq", "city": "Hong Kong", "balance": 45000},
+    {"name": "Ali", "city": "Shenzhen", "balance": 30000},
+    {"name": "Ayesha", "city": "Guangzhou", "balance": 60000},
+]
+
+print("=== HSBC GBA Customer List ===")
+
+for c in customers:
+    print(f"Name: {c['name']} | City: {c['city']} | Balance: {c['balance']} HKD")
+
+    if c['balance'] >= 50000:
+        print("  -> VIP Customer ✅")
+    else:
+        print("  -> Normal Customer")
+
+    print("--------------------")
