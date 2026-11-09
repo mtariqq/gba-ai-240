@@ -1,0 +1,16 @@
+# Day 13 - Function
+
+def salary_slip(name, gross_salary):
+    mpf = gross_salary * 0.05
+    tax = gross_salary * 0.15
+    net = gross_salary - mpf - tax
+    print(f"\n--- Salary Slip for {name} ---")
+    print(f"Gross: {gross_salary} HKD")
+    print(f"MPF: {mpf} HKD")
+    print(f"Tax: {tax} HKD")
+    print(f"Net Salary: {net} HKD")
+
+# Now use it for 3 people in 3 lines only!
+salary_slip("Tariq", 45000)
+salary_slip("Ali", 50000)
+salary_slip("Ayesha", 35000)
