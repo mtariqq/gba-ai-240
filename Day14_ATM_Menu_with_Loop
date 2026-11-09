@@ -1,0 +1,31 @@
+# Day 14 - ATM Menu with Loop
+
+balance = 45000
+
+while True:
+    print("\n=== HSBC ATM Menu ===")
+    print("1. Check Balance")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Exit")
+
+    choice = input("Choose 1-4: ")
+
+    if choice == "1":
+        print(f"Your Balance: {balance} HKD")
+    elif choice == "2":
+        amount = int(input("Deposit amount: "))
+        balance = balance + amount
+        print(f"Done! New Balance: {balance} HKD")
+    elif choice == "3":
+        amount = int(input("Withdraw amount: "))
+        if amount <= balance:
+            balance = balance - amount
+            print(f"Done! New Balance: {balance} HKD")
+        else:
+            print("Not enough balance!")
+    elif choice == "4":
+        print("Thank you! Bye Bye")
+        break
+    else:
+        print("Wrong choice, try again")
