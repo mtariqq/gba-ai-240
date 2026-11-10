@@ -1,0 +1,23 @@
+# Day 6 FIX - Set - Remove Duplicate HKID
+# Author: Tariq - GBA Bank Project
+
+# 1. Original list with duplicates (real bank problem)
+hkids = ["R1234567", "R7654321", "R1234567", "R9999999", "R7654321", "R1111111"]
+
+print("=== BEFORE - With Duplicates ===")
+print(f"Total Applications: {len(hkids)}")
+print(hkids)
+
+# 2. FIX with Set - Removes duplicates automatically
+unique_hkids = set(hkids)
+
+print("\n=== AFTER - Unique Only ===")
+print(f"Unique Clients: {len(unique_hkids)}")
+print(unique_hkids)
+
+# 3. Process each unique client once
+print("\n=== Processing Loans ===")
+for hkid in unique_hkids:
+    print(f"Process Loan for: {hkid}")
+
+print(f"\nDuplicates Removed: {len(hkids) - len(unique_hkids)}")
