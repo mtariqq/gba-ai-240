@@ -1,0 +1,19 @@
+# Day 15 - List
+
+customers = ["Tariq", "Ali", "Ayesha", "Fatima"]
+balances = [45000, 30000, 60000, 25000]
+
+print("=== HSBC Customer List ===")
+
+for i in range(len(customers)):
+    print(f"{i+1}. {customers[i]} - {balances[i]} HKD")
+
+# Add new customer
+customers.append("Your Name")
+balances.append(80000)
+
+print("\nAfter adding you:")
+for i in range(len(customers)):
+    print(f"{i+1}. {customers[i]} - {balances[i]} HKD")
+
+print(f"\nTotal Customers: {len(customers)}")
