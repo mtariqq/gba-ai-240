@@ -1,0 +1,22 @@
+# Day 9 FIX - Sorting + Top 3 by Profit
+# Author: Tariq - GBA Bank Project
+
+clients = [
+    {"name": "Chan Tai Man", "profit": 25000},
+    {"name": "Ali Khan", "profit": 8000},
+    {"name": "Wong Mei Ling", "profit": 45000},
+    {"name": "Ahmed", "profit": 12000},
+    {"name": "Li Wei", "profit": 60000},
+]
+
+# 1. Sort - Biggest profit first
+sorted_clients = sorted(clients, key=lambda x: x["profit"], reverse=True)
+
+print("=== ALL Clients Sorted ===")
+for c in sorted_clients:
+    print(f"{c['name']} - {c['profit']} HKD")
+
+# 2. Top 3 Only - Slicing [0:3]
+print("\n=== TOP 3 VIP ===")
+for i, c in enumerate(sorted_clients[0:3], 1):
+    print(f"{i}. {c['name']} - {c['profit']} HKD")
