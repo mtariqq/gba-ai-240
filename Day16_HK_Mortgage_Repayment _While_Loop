@@ -1,0 +1,24 @@
+# Day 16 - HK Mortgage Repayment - While Loop
+# Repo: banking-ai-foundation
+
+loan = 2000000  # HKD - HK mortgage
+monthly_payment = 25000  # HKD
+month = 0
+total_paid = 0
+
+print("Starting Loan: HKD", loan)
+
+while loan > 0:
+    month = month + 1
+    loan = loan - monthly_payment
+    total_paid = total_paid + monthly_payment
+
+    # Don't show negative loan in last month
+    if loan < 0:
+        loan = 0
+
+    print(f"Month {month}: Remaining Loan = HKD {loan}")
+
+print("--------------------------------")
+print(f"Loan Cleared in {month} months")
+print(f"Total Paid: HKD {total_paid}")
