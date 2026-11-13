@@ -1,0 +1,7 @@
+clients = [80000, 30000, 120000, 20000, 95000]
+
+for balance in clients:
+    if balance < 50000:
+        print(balance, "-> Low Casa - call client")
+    else:
+        print(balance, "-> OK")
