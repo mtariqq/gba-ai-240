@@ -1,0 +1,8 @@
+names = ["Ahmed", "Sara", "Bilal"]
+balances = [80000, 30000, 120000]
+
+for name, balance in zip(names, balances):
+    if balance < 50000:
+        print(name, balance, "-> LOW CASA - Call client")
+    else:
+        print(name, balance, "-> Good Client")
