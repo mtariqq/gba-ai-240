@@ -1,0 +1,16 @@
+# Day 19 - Function for CASA Check
+
+def check_casa(name, balance):
+    if balance < 50000:
+        print(name, "- LOW CASA - Call client")
+    elif balance < 200000:
+        print(name, "- MEDIUM CASA - Send offer")
+    else:
+        print(name, "- VIP CASA - Invite to branch")
+
+# Now check 5 clients in 5 lines
+check_casa("Ali", 30000)
+check_casa("Sara", 120000)
+check_casa("Ahmed", 250000)
+check_casa("Zainab", 45000)
+check_casa("Bilal", 500000)
