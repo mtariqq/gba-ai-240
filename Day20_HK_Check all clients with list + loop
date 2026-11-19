@@ -1,0 +1,25 @@
+# Day 20 - Check all clients with list + loop
+
+def check_casa(name, balance):
+    if balance < 50000:
+        return name + " - LOW CASA"
+    elif balance < 200000:
+        return name + " - MEDIUM CASA"
+    else:
+        return name + " - VIP CASA"
+
+# List of clients - like a bank database
+clients = [
+    ("Ali", 30000),
+    ("Sara", 120000),
+    ("Ahmed", 250000),
+    ("Zainab", 45000),
+    ("Bilal", 500000),
+    ("Fatima", 8000),
+    ("Usman", 180000),
+]
+
+# Loop through all
+for name, balance in clients:
+    result = check_casa(name, balance)
+    print(result)
