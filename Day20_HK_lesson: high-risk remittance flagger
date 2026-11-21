@@ -1,0 +1,24 @@
+remittances = [
+    {"id": "R001", "sender": "Chan Tai Man", "amount_hkd": 650000, "country": "HK"},
+    {"id": "R002", "sender": "Li Wei", "amount_hkd": 90000, "country": "CN"},
+    {"id": "R003", "sender": "Ahmed Khan", "amount_hkd": 1200000, "country": "PK"},
+]
+
+LARGE_AMOUNT_HKD = 500000
+# Placeholder codes. A real list must come from an official source, with its date.
+HIGH_RISK_COUNTRIES = {"XX", "YY"}
+
+def check_remittance(r):
+    reasons = []
+    if r["amount_hkd"] >= LARGE_AMOUNT_HKD:
+        reasons.append("Large amount")
+    if r["country"] in HIGH_RISK_COUNTRIES:
+        reasons.append("High-risk country")
+    return reasons
+
+flagged = []
+for r in remittances:
+    reasons = check_remittance(r)
+    if reasons:
+        flagged.append({"id": r["id"], "reasons": reasons})
+print(flagged)
