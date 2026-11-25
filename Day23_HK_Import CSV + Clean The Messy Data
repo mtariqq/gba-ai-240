@@ -1,0 +1,43 @@
+# Create a CSV file just like HKMA would send
+csv_data = """ClientID,Name,CN_ID,HK_ID,BalanceHKD,Currency,Branch,RiskScore
+C001,Shenzhen Co,440300123456,HK1234567,"1,200,000",cny,Qianhai,85
+C002,HK Trading Ltd,,hk2345678,400000,HKD, central ,
+C003,Qianhai Ltd,440300789012,HK3456789,"800,000",CNY,QIANHAI,65
+C001,Shenzhen Co,440300123456,HK1234567,"1,200,000",cny,Qianhai,85
+C004,Central HK Ltd,,HK4567890,,hkd,Central,20
+C005,Futian Export Co,440300345678,,2500000,CNY,Shenzhen,92
+"""
+
+with open("gba_clients.csv", "w") as f:
+    f.write(csv_data)
+
+print("CSV created!")
+import pandas as pd
+
+df = pd.read_csv("gba_clients.csv")
+print(df)
+print("Shape:", df.shape)
+print(df.columns.tolist())
+# 1. Remove duplicate C001
+df = df.drop_duplicates()
+print("After drop duplicates:", df.shape)
+
+# 2. Strip spaces from Name, Branch, Currency
+df["Name"] = df["Name"].str.strip()
+df["Branch"] = df["Branch"].str.strip().str.title()  # central -> Central, QIANHAI -> Qianhai
+df["Currency"] = df["Currency"].str.strip().str.upper() # cny -> CNY, hkd -> HKD
+df["HK_ID"] = df["HK_ID"].str.strip().str.upper()
+
+# 3. Fix BalanceHKD: "1,200,000" (text) -> 1200000 (number)
+df["BalanceHKD"] = df["BalanceHKD"].astype(str).str.replace(",", "").str.strip()
+df["BalanceHKD"] = pd.to_numeric(df["BalanceHKD"], errors="coerce")
+
+# 4. Fill missing values
+df["BalanceHKD"] = df["BalanceHKD"].fillna(0)
+df["RiskScore"] = df["RiskScore"].fillna(0)
+
+# 5. See clean data
+print(df)
+print("Missing now:")
+print(df.isna().sum())
+print("Total Balance:", df["BalanceHKD"].sum())
